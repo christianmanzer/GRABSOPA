@@ -79,6 +79,11 @@
   .wrap { width: min(980px, 100% - 3rem); margin-inline: auto; }
   .center { text-align: center; }
 
+  /* Temporary notice */
+  .notice { background: var(--pink); color: #2E2A26; text-align: center; padding: 0.9rem 1.5rem; font-family: var(--head); font-size: clamp(1.05rem, 2.4vw, 1.3rem); line-height: 1.3; }
+  .notice[hidden] { display: none; }
+  .notice span { display: block; font-family: var(--serif); font-size: 0.9em; margin-top: 0.15rem; }
+
   /* Hero */
   .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 8vw, 6rem); }
   .welcome {
@@ -174,6 +179,11 @@
   <rect width="100%" height="100%" fill="url(#p)"/>
 </svg>
 
+<div class="notice" id="notice" role="status">
+  Temporarily closed Friday, October 23 and Saturday, October 24.
+  <span>Regular hours resume Sunday.</span>
+</div>
+
 <main>
   <section class="hero center">
     <div class="wrap">
@@ -255,7 +265,8 @@
     var now = hour * 60 + minute;
     var row = document.querySelector('tr[data-d="' + day + '"]');
     if (row) row.classList.add("today");
-    /* status message removed; today row highlight only */
+    var ymd = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver" }).format(new Date());
+    if (ymd > "2026-10-24") { var nb = document.getElementById("notice"); if (nb) nb.hidden = true; }
   } catch (e) {}
 })();
 </script>
