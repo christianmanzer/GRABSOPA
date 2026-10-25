@@ -135,6 +135,8 @@
   tr.today th, tr.today td { font-weight: 700; }
   tr.today th::after { content: " (today)"; font-weight: 400; font-style: italic; }
   address { font-style: normal; font-size: 1.3rem; line-height: 1.45; margin-bottom: 1rem; }
+  .maps { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin: 0 0 1.25rem; }
+  .maps a { text-decoration-color: var(--green); text-decoration-thickness: 3px; text-underline-offset: 4px; }
   .phone { font-family: var(--head); font-size: clamp(1.7rem, 3.4vw, 2.3rem); text-decoration: none; display: inline-block; margin-bottom: 0.75rem; }
   .phone:hover { text-decoration: underline; text-decoration-color: var(--green); text-decoration-thickness: 4px; text-underline-offset: 6px; }
   .links { display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start; }
@@ -221,9 +223,12 @@
             12220 NM-14, Suite 1<br>
             Cedar Crest, NM 87008
           </address>
+          <p class="maps">
+            <a href="https://maps.app.goo.gl/iRzMY3qjrdYgvgGr5" target="_blank" rel="noopener">Google Maps</a>
+            <a href="https://maps.apple.com/?q=12220%20NM-14%20Suite%201%2C%20Cedar%20Crest%2C%20NM%2087008" target="_blank" rel="noopener">Apple Maps</a>
+          </p>
           <a class="phone" href="tel:+15055254518">(505) 525-4518</a>
           <div class="links">
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=12220%20NM-14%20Suite%201%2C%20Cedar%20Crest%2C%20NM%2087008" target="_blank" rel="noopener">Get directions</a>
             <a href="https://www.primeraagua.com">Order online at primeraagua.com</a>
           </div>
         </div>
