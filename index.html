@@ -79,6 +79,11 @@
   .wrap { width: min(980px, 100% - 3rem); margin-inline: auto; }
   .center { text-align: center; }
 
+  /* One-day notice */
+  .notice { background: var(--pink); color: #2E2A26; text-align: center; padding: 1rem 1.5rem; font-family: var(--head); font-size: clamp(1.1rem, 2.6vw, 1.4rem); line-height: 1.3; }
+  .notice[hidden] { display: none; }
+  .notice span { display: block; font-family: var(--serif); font-size: 0.85em; margin-top: 0.3rem; }
+
   /* Hero */
   .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 8vw, 6rem); }
   .welcome {
@@ -183,6 +188,11 @@
   <rect width="100%" height="100%" fill="url(#p)"/>
 </svg>
 
+<div class="notice" id="notice" role="status" hidden>
+  Closed today to prep after a sell out week
+  <span>Our team is spending the holiday with their families. Thank you for an incredible week.</span>
+</div>
+
 <main>
   <section class="hero center">
     <div class="wrap">
@@ -270,6 +280,9 @@
     var now = hour * 60 + minute;
     var row = document.querySelector('tr[data-d="' + day + '"]');
     if (row) row.classList.add("today");
+    var ymd = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver" }).format(new Date());
+    var nb = document.getElementById("notice");
+    if (nb && ymd === "2026-10-31") nb.hidden = false;
 
   } catch (e) {}
 })();
